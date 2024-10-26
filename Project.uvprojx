@@ -664,6 +664,46 @@
               <FileType>5</FileType>
               <FilePath>.\Function\TIM.h</FilePath>
             </File>
+            <File>
+              <FileName>Delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\Delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>Delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Function\Delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Function\GPIO.h</FilePath>
+            </File>
+            <File>
+              <FileName>HCSR05.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\HCSR05.c</FilePath>
+            </File>
+            <File>
+              <FileName>HCSR05.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Function\HCSR05.h</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Function\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Function\key.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

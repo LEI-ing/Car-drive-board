@@ -6,4 +6,9 @@
 #define ECHO GPIO_Pin_1
 #define HCSR04_TIM TIM3
 
+void HCSR04_Init(void);
+float GetDistance(void);
+void TriggerSigner(void);
+
+
 #endif

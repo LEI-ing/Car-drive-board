@@ -30,3 +30,5 @@
 .\objects\main.o: .\Library\misc.h
 .\objects\main.o: .\Function\OLED.h
 .\objects\main.o: .\Function\TIM.h
+.\objects\main.o: .\Function\HCSR05.h
+.\objects\main.o: .\Function\key.h
