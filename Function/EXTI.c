@@ -1,5 +1,14 @@
 #include "stm32f10x.h" // Device header
 
+/**
+ * @brief 自定义EXTI初始化函数，需要自己配置对应的GPIO初始化（ 使用MyGPIO_Init() ）
+ *
+ * @param GPIO_PortSource 使用EXTI的GPIO端口
+ * @param GPIO_PinSource 使用EXTI的GPIO引脚
+ * @param EXTI_Trigger EXTI的触发方式
+ * @param PreemptionPriority 抢占优先级
+ * @param SubPriority 从占优先级
+ */
 void MyEXTI_Init(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource, EXTITrigger_TypeDef EXTI_Trigger, uint8_t PreemptionPriority, uint8_t SubPriority)
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
@@ -22,8 +31,7 @@ void MyEXTI_Init(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource, EXTITrigger_Ty
         EXTI_Line12,
         EXTI_Line13,
         EXTI_Line14,
-        EXTI_Line15
-    };
+        EXTI_Line15};
     const uint8_t GPIO_PinSources[] = {
         GPIO_PinSource1,
         GPIO_PinSource2,
@@ -39,8 +47,7 @@ void MyEXTI_Init(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource, EXTITrigger_Ty
         GPIO_PinSource12,
         GPIO_PinSource13,
         GPIO_PinSource14,
-        GPIO_PinSource15
-    };
+        GPIO_PinSource15};
     const uint8_t NVIC_IRQChannals[] = {
         EXTI0_IRQn,
         EXTI1_IRQn,
@@ -48,11 +55,10 @@ void MyEXTI_Init(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource, EXTITrigger_Ty
         EXTI3_IRQn,
         EXTI4_IRQn,
         EXTI9_5_IRQn,
-        EXTI15_10_IRQn
-    };
+        EXTI15_10_IRQn};
     uint8_t i = 0;
-    for(i = 0;i < sizeof(GPIO_PinSources)/sizeof(GPIO_PinSources[0]);i++) {
-        if(GPIO_PinSource == GPIO_PinSources[i]) {
+    for (i = 0; i < sizeof(GPIO_PinSources) / sizeof(GPIO_PinSources[0]); i++) {
+        if (GPIO_PinSource == GPIO_PinSources[i]) {
             break;
         }
     }
@@ -63,13 +69,12 @@ void MyEXTI_Init(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource, EXTITrigger_Ty
     EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger;
     EXTI_Init(&EXTI_InitStruct);
 
-    if(i > 4 && i < 9) {
+    if (i > 4 && i < 9) {
         i = 5;
-    }else if (i > 9)
-    {
+    } else if (i > 9) {
         i = 6;
     }
-    
+
     NVIC_InitTypeDef NVIC_InitTypeDefStruct;
     NVIC_InitTypeDefStruct.NVIC_IRQChannel                   = NVIC_IRQChannals[i];
     NVIC_InitTypeDefStruct.NVIC_IRQChannelCmd                = ENABLE;
